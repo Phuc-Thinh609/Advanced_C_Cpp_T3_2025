@@ -48,8 +48,7 @@ int maxNumber = MAX(10, 20); // Kết quả: 20
 ```
     
  3. Macro in menu (slide 25)
-
-     ```cpp
+```cpp
 PRINT_MENU("Option 1", "Option 2", "Option 3", "Exit");
 ```
 
