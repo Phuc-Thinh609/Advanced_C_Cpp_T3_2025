@@ -42,7 +42,18 @@ Quá trình biên dịch bao gồm:
         printf("Area of the circle: %.2f\n", area);
         return 0;
         }
-       
+     * Định nghĩa macro tính toán (slide 10)
+       ```cpp
+       #include <stdio.h>
+       // Macro để tính bình phương của một số
+       #define SQUARE(x) ((x) * (x))    
+       int main() {
+           // Sử dụng macro để tính bình phương của num
+           int result = SQUARE(5);
+           printf("Result is: %d\n", result);
+           return 0;
+       }
+
   4. *#undef - Hủy định nghĩa macro*
   5. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý*
   6. *#ifdef, #ifndef - kiểm tra macro đã được định nghĩa chưa*
