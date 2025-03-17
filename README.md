@@ -149,6 +149,10 @@ Quá trình biên dịch bao gồm:
        #endif
 
   6. Một số toán tử trong macro
+     * Toán tử # *chuyển tham số thành chuỗi*
+       ```cpp
+       #define STRINGIZE(x) #x
+       printf("%s", STRINGIZE(Hello)); // In ra "Hello"
 
 ## Ví dụ minh họa macro dễ nhớ
  1. Tính diện tích hình tròn
