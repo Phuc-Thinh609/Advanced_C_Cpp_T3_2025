@@ -8,7 +8,7 @@ Quá trình biên dịch bao gồm:
 * Compiler (Biên dịch) -> tạo file *.s* (assembly)
 * Assembler (Trình hợp dịch) -> tạo file *.o* (object)
 * Linker (Trình liên kết) -> tạo file thực thi *.exe*
-- Ví dụ:
+Ví dụ:
   Mã nguồn (*.c, .h*) -> Preprocessor -> Biên dịch -> Hợp dịch -> Liên kết -> Tạo file chạy (*.exe*)
 
 # Macro
@@ -17,10 +17,10 @@ Quá trình biên dịch bao gồm:
 - Không phải code
 - Macro không có kiểu dữ liệu
 - Macro là các chỉ thị xử lý trước khi biên dịch. Các loại macro chính:
-  ## *#include - chèn file tiêu đề*
+  1.*#include - chèn file tiêu đề*
   Dùng để nhập nội dung file *.h* vào chương trình, giúp tái sử dụng mã nguồn
-  Ví dụ
- ```
+Ví dụ
+```cpp
 #include <stdio.h>  // Chèn thư viện chuẩn
 ```
 
