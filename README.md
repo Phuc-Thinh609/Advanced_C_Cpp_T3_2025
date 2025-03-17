@@ -21,7 +21,6 @@ Quá trình biên dịch bao gồm:
 - Macro là các chỉ thị xử lý trước khi biên dịch. Các loại macro chính:
 
   1. *#include - chèn file tiêu đề*
-  
   Dùng để nhập nội dung file *.h* vào chương trình, giúp tái sử dụng mã nguồn
 
   Ví dụ
@@ -41,7 +40,7 @@ Quá trình biên dịch bao gồm:
         printf("Radius: %.2f\n", radius);
         printf("Area of the circle: %.2f\n", area);
         return 0;
-    }
+        }
        '''
   4. *#undef - Hủy định nghĩa macro*
   5. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý*
