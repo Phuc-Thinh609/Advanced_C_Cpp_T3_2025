@@ -54,7 +54,13 @@ Quá trình biên dịch bao gồm:
            return 0;
        }
 
-  4. *#undef - Hủy định nghĩa macro*
+  3. *#undef - Hủy định nghĩa macro*
+     * Chỉ thị #undef dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng #define
+       ```cpp
+       #define SENSOR_DATA 42
+       #undef SENSOR_DATA  // Hủy bỏ định nghĩa
+       #define SENSOR_DATA 50  // Định nghĩa lại
+         
   5. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý*
   6. *#ifdef, #ifndef - kiểm tra macro đã được định nghĩa chưa*
   7. Một số toán tử trong macro
