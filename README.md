@@ -55,13 +55,89 @@ Quá trình biên dịch bao gồm:
        }
 
   3. *#undef - Hủy định nghĩa macro*
-     * Chỉ thị #undef dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng #define
+     * Chỉ thị *#undef* dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng *#define*
        ```cpp
        #define SENSOR_DATA 42
        #undef SENSOR_DATA  // Hủy bỏ định nghĩa
        #define SENSOR_DATA 50  // Định nghĩa lại
          
-  5. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý*
+  4. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý*
+     * *#if
+      ```cpp
+       #include <stdio.h>
+      
+       typedef enum
+       {
+           GPIOA,
+           GPIOB,
+           GPIOC
+       } Ports;
+       
+       typedef enum
+       {
+           PIN1,
+           PIN2,
+           PIN3,
+           PIN4,
+           PIN5,
+           PIN6,
+           PIN7,
+       } Pins;
+       
+       typedef enum
+       {
+           HIGH,
+           LOW
+       } Status;
+       
+       #define STM32 0
+       #define ATMEGA 1
+       #define PIC 2      
+       #define MCU STM32
+       
+       #if MCU == STM32
+       void daoTrangThaiDen(Ports port, Pins pin, Status status)
+       {
+           if (status == HIGH)
+           {
+               HAL_GPIO_WritePin(port, pin, LOW);
+           }
+           else
+           {
+               HAL_GPIO_WritePin(port, pin, HIGH);
+           }  
+       }
+       #elif MCU == ATMEGA
+       void daoTrangThaiDen(Pins pin, Status status)
+       {
+           if (status == HIGH)
+           {
+               digitalWrite(pin, LOW);
+           }
+           else
+           {
+               digitalWrite(pin, HIGH);
+           }  
+       }
+       
+       #endif
+       
+       void delay(int ms)
+       {
+       
+       }
+       
+       
+       int main()
+       {
+           while(1)
+           {
+               daoTrangThaiDen(GPIOA,13,HIGH);
+               delay(1000);
+           }     
+           return 0;
+       }
+
   6. *#ifdef, #ifndef - kiểm tra macro đã được định nghĩa chưa*
   7. Một số toán tử trong macro
 
