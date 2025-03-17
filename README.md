@@ -35,12 +35,12 @@ Quá trình biên dịch bao gồm:
        // Định nghĩa hằng số Pi sử dụng #define
        #define PI 3.14
        int main() {
-        // Sử dụng hằng số Pi trong chương trình
-        double radius = 5.0;
-        double area = PI * radius * radius;
-        printf("Radius: %.2f\n", radius);
-        printf("Area of the circle: %.2f\n", area);
-        return 0;
+           // Sử dụng hằng số Pi trong chương trình
+           double radius = 5.0;
+           double area = PI * radius * radius;
+           printf("Radius: %.2f\n", radius);
+           printf("Area of the circle: %.2f\n", area);
+           return 0;
         }
      * Định nghĩa macro tính toán (slide 10)
        ```cpp
