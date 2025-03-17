@@ -61,8 +61,10 @@ Quá trình biên dịch bao gồm:
        #undef SENSOR_DATA  // Hủy bỏ định nghĩa
        #define SENSOR_DATA 50  // Định nghĩa lại
          
-  4. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý*
-     * *#if
+  4. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý* (slie 16)
+     * *#if* đúng sẽ được biên dịch trong ngoặc, sai thì bỏ qua chạy đến gặp *#elif*
+     * *#elif* dùng để thêm một điều kiện mới khi điều kiện trước đó if hoặc elif saisai
+     * *#else* dùng khi không có điều kiện nào ở trên đúng
       ```cpp
        #include <stdio.h>
       
@@ -126,8 +128,7 @@ Quá trình biên dịch bao gồm:
        {
        
        }
-       
-       
+            
        int main()
        {
            while(1)
@@ -138,8 +139,16 @@ Quá trình biên dịch bao gồm:
            return 0;
        }
 
-  6. *#ifdef, #ifndef - kiểm tra macro đã được định nghĩa chưa*
-  7. Một số toán tử trong macro
+  6. *#ifdef, #ifndef* - kiểm tra macro đã được định nghĩa chưa (slide 17)
+     * *#ifdef* dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro đã được định nghĩa thì mã nguồn sau *#ifdef* sữ được biên dịch
+     * *#ifndef* dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro chưa được định nghĩa thì mã nguồn sau *#ifndef* sữ được biên dịch
+       ```cpp
+       #ifndef __ABC_H
+       #define __ABC_H
+       int a = 10;
+       #endif
+
+  8. Một số toán tử trong macro
 
 ## Ví dụ minh họa macro dễ nhớ
  1. Tính diện tích hình tròn
