@@ -29,10 +29,24 @@ Quá trình biên dịch bao gồm:
 #include <stdio.h>  // Chèn thư viện chuẩn
 ```
   2. *#define - Định nghĩa hằng số và macro*
-  3. *#undef - Hủy định nghĩa macro*
-  4. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý*
-  5. *#ifdef, #ifndef - kiểm tra macro đã được định nghĩa chưa*
-  6. Một số toán tử trong macro
+     * Định nghĩa hằng số (slide 9)
+       ```cpp
+       #include <stdio.h>
+       // Định nghĩa hằng số Pi sử dụng #define
+       #define PI 3.14
+       int main() {
+        // Sử dụng hằng số Pi trong chương trình
+        double radius = 5.0;
+        double area = PI * radius * radius;
+        printf("Radius: %.2f\n", radius);
+        printf("Area of the circle: %.2f\n", area);
+        return 0;
+    }
+       '''
+  4. *#undef - Hủy định nghĩa macro*
+  5. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý*
+  6. *#ifdef, #ifndef - kiểm tra macro đã được định nghĩa chưa*
+  7. Một số toán tử trong macro
 
 ## Ví dụ minh họa macro dễ nhớ
  1. Tính diện tích hình tròn
