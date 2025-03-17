@@ -8,10 +8,10 @@ Quá trình biên dịch bao gồm:
 * Compiler (Biên dịch) -> tạo file *.s* (assembly)
 * Assembler (Trình hợp dịch) -> tạo file *.o* (object)
 * Linker (Trình liên kết) -> tạo file thực thi *.exe*
-Ví dụ:
+- Ví dụ:
   Mã nguồn (*.c, .h*) -> Preprocessor -> Biên dịch -> Hợp dịch -> Liên kết -> Tạo file chạy (*.exe*)
 
-#Macro
+# Macro
 - Macro là một khái niệm dùng để định nghĩa một tập hợp các hướng dẫn tiền xử lý
 - Bản chất của Macro nó chỉ thay thế đoạn được định nghĩa *define* vào, giúp giảm lặp lại, dễ bảo trì chương trình
 - Không phải code
