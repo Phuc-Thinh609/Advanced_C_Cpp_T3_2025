@@ -20,7 +20,7 @@ Quá trình biên dịch bao gồm:
 - Macro không có kiểu dữ liệu
 - Macro là các chỉ thị xử lý trước khi biên dịch. Các loại macro chính:
 
-1. *#include - chèn file tiêu đề*
+1. *#include* - chèn file tiêu đề
    
   Dùng để nhập nội dung file *.h* vào chương trình, giúp tái sử dụng mã nguồn
 
@@ -28,7 +28,7 @@ Quá trình biên dịch bao gồm:
 ```cpp
 #include <stdio.h>  // Chèn thư viện chuẩn
 ```
-  2. *#define - Định nghĩa hằng số và macro*
+  2. *#define* - Định nghĩa hằng số và macro
      * Định nghĩa hằng số (slide 9)
        ```cpp
        #include <stdio.h>
@@ -54,14 +54,14 @@ Quá trình biên dịch bao gồm:
            return 0;
        }
 
-  3. *#undef - Hủy định nghĩa macro*
+  3. *#undef* - Hủy định nghĩa macro
      * Chỉ thị *#undef* dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng *#define*
        ```cpp
        #define SENSOR_DATA 42
        #undef SENSOR_DATA  // Hủy bỏ định nghĩa
        #define SENSOR_DATA 50  // Định nghĩa lại
          
-  4. *#if, #elif, #else - kiểm tra điều kiện tiền xử lý* (slie 16)
+  4. *#if, #elif, #else* - kiểm tra điều kiện tiền xử lý (slie 16)
      * *#if* đúng sẽ được biên dịch trong ngoặc, sai thì bỏ qua chạy đến gặp *#elif*
      * *#elif* dùng để thêm một điều kiện mới khi điều kiện trước đó if hoặc elif saisai
      * *#else* dùng khi không có điều kiện nào ở trên đúng
@@ -139,7 +139,7 @@ Quá trình biên dịch bao gồm:
            return 0;
        }
 
-  6. *#ifdef, #ifndef* - kiểm tra macro đã được định nghĩa chưa (slide 17)
+  5. *#ifdef, #ifndef* - kiểm tra macro đã được định nghĩa chưa (slide 17)
      * *#ifdef* dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro đã được định nghĩa thì mã nguồn sau *#ifdef* sữ được biên dịch
      * *#ifndef* dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro chưa được định nghĩa thì mã nguồn sau *#ifndef* sữ được biên dịch
        ```cpp
@@ -148,7 +148,7 @@ Quá trình biên dịch bao gồm:
        int a = 10;
        #endif
 
-  8. Một số toán tử trong macro
+  6. Một số toán tử trong macro
 
 ## Ví dụ minh họa macro dễ nhớ
  1. Tính diện tích hình tròn
