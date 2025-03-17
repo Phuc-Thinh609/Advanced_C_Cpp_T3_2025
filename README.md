@@ -18,7 +18,8 @@ Quá trình biên dịch bao gồm:
 - Không phải code
 - Macro không có kiểu dữ liệu
 - Macro là các chỉ thị xử lý trước khi biên dịch. Các loại macro chính:
-  1.*#include - chèn file tiêu đề*
+
+  1. *#include - chèn file tiêu đề*
   
   Dùng để nhập nội dung file *.h* vào chương trình, giúp tái sử dụng mã nguồn
 
