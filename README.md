@@ -153,7 +153,10 @@ Quá trình biên dịch bao gồm:
        ```cpp
        #define STRINGIZE(x) #x
        printf("%s", STRINGIZE(Hello)); // In ra "Hello"
-
+      * Toán tử ## *ghép tên biến*
+        ```cpp
+        #define DECLARE_VARIABLE(prefix, number) int prefix##number;
+        DECLARE_VARIABLE(var, 1); // Tạo biến var1
 ## Ví dụ minh họa macro dễ nhớ
  1. Tính diện tích hình tròn
 ```cpp
