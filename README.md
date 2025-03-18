@@ -67,75 +67,20 @@ Quá trình biên dịch bao gồm:
      * *#else* dùng khi không có điều kiện nào ở trên đúng
       ```cpp
        #include <stdio.h>
-      
-       typedef enum
-       {
-           GPIOA,
-           GPIOB,
-           GPIOC
-       } Ports;
+
+       #define STM32 1
+       #define AVR 2    
+       #define MCU STM32  // Chọn loại vi điều khiển
        
-       typedef enum
-       {
-           PIN1,
-           PIN2,
-           PIN3,
-           PIN4,
-           PIN5,
-           PIN6,
-           PIN7,
-       } Pins;
+       int main() {
+           #if MCU == STM32
+               printf("Bật đèn bằng HAL_GPIO_WritePin\n");
+           #elif MCU == AVR
+               printf("Bật đèn bằng digitalWrite\n");
+           #else
+               printf("Không hỗ trợ MCU này\n");
+           #endif
        
-       typedef enum
-       {
-           HIGH,
-           LOW
-       } Status;
-       
-       #define STM32 0
-       #define ATMEGA 1
-       #define PIC 2      
-       #define MCU STM32
-       
-       #if MCU == STM32
-       void daoTrangThaiDen(Ports port, Pins pin, Status status)
-       {
-           if (status == HIGH)
-           {
-               HAL_GPIO_WritePin(port, pin, LOW);
-           }
-           else
-           {
-               HAL_GPIO_WritePin(port, pin, HIGH);
-           }  
-       }
-       #elif MCU == ATMEGA
-       void daoTrangThaiDen(Pins pin, Status status)
-       {
-           if (status == HIGH)
-           {
-               digitalWrite(pin, LOW);
-           }
-           else
-           {
-               digitalWrite(pin, HIGH);
-           }  
-       }
-       
-       #endif
-       
-       void delay(int ms)
-       {
-       
-       }
-            
-       int main()
-       {
-           while(1)
-           {
-               daoTrangThaiDen(GPIOA,13,HIGH);
-               delay(1000);
-           }     
            return 0;
        }
 
