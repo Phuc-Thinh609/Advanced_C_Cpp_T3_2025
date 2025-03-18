@@ -4,7 +4,7 @@ Compiler (Trình biên dịch) là công cụ dịch mã nguồn thành mã máy
 
  ## Compiler Process
 Quá trình biên dịch bao gồm: 
-* Preprocessor (Tiền xử lý) -> tạo file *.*
+* Preprocessor (Tiền xử lý) -> tạo file *.i*
 * Compiler (Biên dịch) -> tạo file *.s* (assembly)
 * Assembler (Trình hợp dịch) -> tạo file *.o* (object)
 * Linker (Trình liên kết) -> tạo file thực thi *.exe*
