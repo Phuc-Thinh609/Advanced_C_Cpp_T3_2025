@@ -29,7 +29,7 @@ Quá trình biên dịch bao gồm:
 #include <stdio.h>  // Chèn thư viện chuẩn
 ```
   2. *#define* - Định nghĩa hằng số và macro
-     * Định nghĩa hằng số (slide 9)
+     - Định nghĩa hằng số (slide 9)
        ```cpp
        #include <stdio.h>
        // Định nghĩa hằng số Pi sử dụng #define
@@ -42,7 +42,7 @@ Quá trình biên dịch bao gồm:
            printf("Area of the circle: %.2f\n", area);
            return 0;
         }
-     * Định nghĩa macro tính toán (slide 10)
+     - Định nghĩa macro tính toán (slide 10)
        ```cpp
        #include <stdio.h>
        // Macro để tính bình phương của một số
@@ -55,16 +55,16 @@ Quá trình biên dịch bao gồm:
        }
 
   3. *#undef* - Hủy định nghĩa macro
-     * Chỉ thị *#undef* dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng *#define*
+     - Chỉ thị *#undef* dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng *#define*
        ```cpp
        #define SENSOR_DATA 42
        #undef SENSOR_DATA  // Hủy bỏ định nghĩa
        #define SENSOR_DATA 50  // Định nghĩa lại
          
   4. *#if, #elif, #else* - kiểm tra điều kiện tiền xử lý (slie 16)
-     * *#if* đúng sẽ được biên dịch trong ngoặc, sai thì bỏ qua chạy đến gặp *#elif*
-     * *#elif* dùng để thêm một điều kiện mới khi điều kiện trước đó if hoặc elif saisai
-     * *#else* dùng khi không có điều kiện nào ở trên đúng
+     - *#if* đúng sẽ được biên dịch trong ngoặc, sai thì bỏ qua chạy đến gặp *#elif*
+     - *#elif* dùng để thêm một điều kiện mới khi điều kiện trước đó if hoặc elif saisai
+     - *#else* dùng khi không có điều kiện nào ở trên đúng
       ```cpp
        #include <stdio.h>
 
@@ -85,8 +85,8 @@ Quá trình biên dịch bao gồm:
        }
 
   5. *#ifdef, #ifndef* - kiểm tra macro đã được định nghĩa chưa (slide 17)
-     * *#ifdef* dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro đã được định nghĩa thì mã nguồn sau *#ifdef* sữ được biên dịch
-     * *#ifndef* dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro chưa được định nghĩa thì mã nguồn sau *#ifndef* sữ được biên dịch
+     - *#ifdef* dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro đã được định nghĩa thì mã nguồn sau *#ifdef* sữ được biên dịch
+     - *#ifndef* dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro chưa được định nghĩa thì mã nguồn sau *#ifndef* sữ được biên dịch
        ```cpp
        #ifndef __ABC_H
        #define __ABC_H
@@ -94,29 +94,35 @@ Quá trình biên dịch bao gồm:
        #endif
 
   6. Một số toán tử trong macro
-     * Toán tử # *chuyển tham số thành chuỗi*
+     - Toán tử # chuyển tham số thành chuỗi
        ```cpp
        #define STRINGIZE(x) #x
        printf("%s", STRINGIZE(Hello)); // In ra "Hello"
-      * Toán tử ## *ghép tên biến*
+      - Toán tử ## nối chuỗi
         ```cpp
         #define DECLARE_VARIABLE(prefix, number) int prefix##number;
         DECLARE_VARIABLE(var, 1); // Tạo biến var1
 ## Ví dụ minh họa macro dễ nhớ
  1. Tính diện tích hình tròn
-```cpp
-#define PI 3.14
-double area = PI * radius * radius;
-```
+    ```cpp
+    #define PI 3.14
+    double area = PI * radius * radius;
+    ```
 
  2. Tìm max
-```cpp
-#define MAX(x, y) ((x) > (y) ? (x) : (y))
-int maxNumber = MAX(10, 20); // Kết quả: 20
-```
+    ```cpp
+    #define MAX(x, y) ((x) > (y) ? (x) : (y))
+    int maxNumber = MAX(10, 20); // Kết quả: 20
+    ```
     
  3. Macro in menu (slide 25)
-```cpp
-PRINT_MENU("Option 1", "Option 2", "Option 3", "Exit");
-```
+    ```cpp
+    PRINT_MENU("Option 1", "Option 2", "Option 3", "Exit");
+    ```
+4. variadic
+   - ... : biểu thị các đối số không xác định
+   - __VA_ARGS__ : thay thế bằng danh sách các đối số
+   ```Cpp
+    #define print(...)__VA_ARGS__
+   ```
 
