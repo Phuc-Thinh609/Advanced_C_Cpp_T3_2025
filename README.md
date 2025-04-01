@@ -1,5 +1,9 @@
+# ADVANCE C
+<details>
+<summary>Bài 1: COMPILER - PREPROCESS - MACRO</summary>
+ 
 # Compiler Process (Trình biên dịch)
- ## Giới thiệu về Compiler 
+  ## Giới thiệu về Compiler 
 Compiler (Trình biên dịch) là công cụ dịch mã nguồn thành mã máy để chương trình có thể chạy. 
 
  ## Compiler Process
@@ -125,4 +129,144 @@ Quá trình biên dịch bao gồm:
    ```Cpp
     #define print(...)__VA_ARGS__
    ```
+</details>
 
+<details>
+<summary>Bài 2: STDARG - ASSERT</summary>
+
+ # STDARG 
+ - Thư viện __stdarg__ xử lý hàm có số tham số không cố định
+ - Công dụng: cho phép viết các hàm nhận số lượng đối số khác nhau tại mỗi lần gọi, các hàm như __printf__, __scanf__
+ - Các thành phần chính:
+
+   | Thành phần | Công dụng |
+   |------------|-----------|
+   | __va_list__ | Khai báo danh sách các đối số biến đổi |
+   | __va_start__ | Bắt đầu truy cập danh sách |
+   | __va_arg__ | Lấy từng đối số trong danh sách |
+   | __va_end__ | Kết thúc truy cập danh sách |
+- Ví dụ - in giá trị
+  ```Cpp
+  void display(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    for (int i = 0; i < count; i++) {
+        printf("Value at %d: %d\n", i, va_arg(args,int)); 
+    }
+    va_end(args);
+  }
+  ```
+# ASSERT 
+ - Thư viện __assert__ kiểm tra điều kiện khi chạy (Debug)
+ - Công dụng:
+   * Kiểm tra điều kiện logic trong chương trình
+   * Nếu điều kiện sai -> in lỗi và dừng chương trình
+   * Chỉ dừng khi debug, có thể tắt bằng __#define NDEBUG__
+ - Ví dụ điển hình
+   ```Cpp
+     int x = 5;
+     assert (x == 5);
+     //Chương trình sẽ tiếp tục thực thi nếu điều kiện là đúng
+     printf ("X is: %d", X)
+   ```
+- Ứng dụng thư viện assert
+  | Macro tự định nghĩa | Chức năng |
+  |---------------------|-----------|
+  | __assert_in_range__(val, min, max) | Kiểm tra giá trị trong khoảng |
+  | __assert_size(type, size)__ | Kiểm tra kích thước kiểu dữ liệu |
+  - Ví dụ kiểm tra giá trị trong khoảng
+    ```Cpp
+      #define ASSERT_IN_RANGE(val, min, max) assert((val) >= (min) && (val) <= (max))
+    
+      void setLevel(int level) {
+          ASSERT_IN_RANGE(level, 1, 10);
+          // Thiết lập cấp độ
+      }
+    ```
+  - Ví dụ kiểm tra kích thước kiểu dữ liệu
+    ```Cpp
+      #define ASSERT_SIZE(type, size) assert(sizeof(type) == (size))
+    
+      void checkTypeSizes() {
+          ASSERT_SIZE(uint32_t, 4);
+          ASSERT_SIZE(uint16_t, 2);
+          // Kiểm tra các kích thước kiểu dữ liệu khác
+      }
+    ```
+</details>
+
+<details>
+<summary>Bài 3: BITMAST</summary>
+
+# Bitmask 
+  * Bitmask là kỹ thuật thao tác với các bit riêng lẻ trong một biến
+  * Mục đích của Bitmask là tối ưu hóa bộ nhớ
+  * Sử dụng các phép toán bitwise (AND, OR, XOR, NOT, <<, >>) để bật, tắt, kiểm tra từng bit.
+  ## NOT bitwise
+  -  NOT bitwise hình dung là phép nghịch đảo (đảo bit)
+      ```cpp
+        int a = 0b0101; //5
+        int b = 0b1001; 
+        int result_1 = ~a; // 1010
+        int result_2 = ~b; // 0110
+      ```
+  ## AND bitwise
+  - AND bitwise hình dung là phép nhân
+    ```Cpp
+      int a = 0b0101; //5
+      int b = 0b1001; 
+      int result = a & b; // 0001
+    ```
+  ## OR bitwise
+  - OR bitwise hình dung là phép cộng
+    ```Cpp
+    int a = 0b0101; //5
+    int b = 0b1001; 
+    int result = a | b; // 1101
+    ```
+  ## XOR bitwise
+  - XOR bitwise hình dung dễ hiểu là đếm tổng số 1 trong cùng một cột, nếu lẻ là 1, ngược lại chẵn là 0
+    ```Cpp
+    int a = 0b0101; //5
+    int b = 0b1001; 
+    int c = 0b1101; 
+    int d = 0b1011; 
+    int result = a ^ b ^ c ^ d; // 0b1010
+    ```
+ ## Shifl left và Shifl right bitwise 
+ - Shifl left (<<) và Shifl right (>>) hình dung là dịch bên nào thì bên đó xóa và thêm số 0 và bên ngược lại
+   ```Cpp
+    int a = 0b10010110
+    int result_1 = a << 1; //0b 00101100
+    int result_2 = a << 3; //0b 10110000
+    
+    int result_3 = a >> 3; //0b 00010010
+    int result_4 = a >> 6; //0b 00000010
+   ```
+</details>
+
+<details>
+<summary>Bài 5: STORAGE CLASSES</summary>
+
+</details>
+
+</details>
+
+<details>
+<summary>Bài 4: POINTER</summary>
+
+</details>
+
+</details>
+
+<details>
+<summary>Bài 6: GOTO - SETJMP.h</summary>
+
+</details>
+
+</details>
+
+<details>
+<summary>Bài 7: STRUCT - UNION</summary>
+
+</details>
