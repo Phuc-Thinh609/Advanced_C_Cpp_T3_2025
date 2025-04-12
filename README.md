@@ -247,7 +247,97 @@ Quá trình biên dịch bao gồm:
 
 <details>
 <summary>Bài 5: STORAGE CLASSES</summary>
+ - Storage Classes là biến đặc biệt, những từ khóa đi kèm với biến
+ 
+ # Extern
+  * Extern tận dụng lại những cái biến, những hàm của file khác (đã được định nghĩa) cho phép chương trình truy cập nó mà không cần định nghĩa lại
+  * file.c (định nghĩa) -> file.h (extern) -> main.c 
+  * Ứng dụng: chia sẻ tài nguyên giữa các module/file khác nhau
+  * Note: extern chỉ sử dụng cho biến toàn cục. Vì biến cục bộ bị giới hạn trong hàm
+ # Static
+  ## Static local
+   * Khi static được sử dụng với biến cục bộ (khai báo biến trong một hàm):
+      + Giữ phạm vi của biến chỉ trong hàm đó
+      + Giữ giá trị của biến qua các lần gọi hàm
+   * Ví dụ:
+     ```Cpp
+        #include <stdio.h>
+        
+        void exampleFunction()
+        {
+            static int count = 0;  // Biến static giữ giá trị qua các lần gọi hàm
+            count++;
+            printf("Count: %d\n", count);
+        }
+        
+        int main()
+        {
+            exampleFunction();  // In ra "Count: 1"
+            exampleFunction();  // In ra "Count: 2"
+            exampleFunction();  // In ra "Count: 3"
+            return 0;
+        }
 
+     ```
+  ## Static trong class
+   * Khi một thành viên của **class** được khai báo là **static**, nó thuộc về class chứ không thuộc về các đối tượng cụ thể của class đó.
+   * Các đối tượng của class sẽ chia sẻ cùng một bản sao của thành viên static, và nó có thể được truy cập mà không cần tạo đối tượng. Nó thường được sử dụng để lưu trữ dữ liệu chung của tất cả các đối tượng.
+  ## Static global
+   * Khi static được sử dụng với biến, hàm toàn cục, nó hạn chế phạm vi của biến, hàm đó chỉ trong file nguồn hiện tại
+   * Ứng dụng: dùng để thiết kế các thư viện, quản lý tài nguyên nội bộ.
+   * Lưu trữ trạng thái chung trong một file:
+     + Dùng để lưu trữ dữ liệu mà các hàm trong cùng một file cần chia sẻ, nhưng không muốn các file khác can thiệp (đảm bảo tính đóng gói) 
+      
+ # Volatile 
+  * Volatile một công cụ để đảm bảo rằng trình biên dịch xử lý chính xác các biến có thể thay đổi ngoài sự kiểm soát của mã chương trình. Ngắn chặn trình biên dịch tối ưu hóa hoặc xóa bỏ các thao tác trên biến đó, giữ cho các thao tác trên biến được thực hiện như đã được định nghĩa
+  * Cú pháp:
+    ```Cpp
+    volatile type variable_name;
+    ```
+ * Ví dụ:
+   ```Cpp
+
+   #include <stdio.h>
+
+   volatile int sensor_value; // Giả sử cảm biến cập nhật giá trị này
+   
+   int main() {
+       while (sensor_value == 0) {
+           // Chờ cho đến khi cảm biến thay đổi giá trị
+       }
+       printf("Sensor value changed to %d\n", sensor_value);
+       return 0;
+   }
+   ```
+  # Register
+   * Register gợi ý trình biên dịch save biến thường dùng vào thanh ghi để truy cập nhanh hơn, thay vì RAM. Không được sử dụng cho biến toàn cục.
+   * Ứng dụng: Tăng tốc độ xử lý
+   * ![Sơ đồ minh họa](Register.png)
+   * Ví dụ:
+     ```Cpp
+       #include <stdio.h>
+       #include <time.h>
+       
+       int main()
+       {
+          // Lưu thời điểm bắt đầu
+          clock_t start_time = clock();
+          register int i;
+       
+          // Đoạn mã của chương trình
+          for (i = 0; i < 2000000; ++i){}
+       
+          // Lưu thời điểm kết thúc
+          clock_t end_time = clock();
+       
+          // Tính thời gian chạy bằng miligiây
+          double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+       
+          printf("Thoi gian chay cua chuong trinh: %f giay\n", time_taken);
+          return 0;
+       }
+
+     ```
 </details>
 
 </details>
