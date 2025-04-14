@@ -388,6 +388,7 @@ Quá trình biên dịch bao gồm:
       };
    ```
 # Ứng dụng kết hợp struct và union 
+ * Xử lý Data Frame truyền giữa MCU A và MCU B
  ```Cpp
    #include <stdio.h>
    #include <stdint.h>
