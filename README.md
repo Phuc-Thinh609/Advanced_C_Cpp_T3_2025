@@ -359,4 +359,34 @@ Quá trình biên dịch bao gồm:
 <details>
 <summary>Bài 7: STRUCT - UNION</summary>
 
+# Struct
+ * Trong C, Struct giúp mình định nghĩa một kiểu dữ liệu mới, dữ liệu mình mong muốn bao gồm các kiểu dữ kiệu khác. Struct cho phép tạo ra một thực thể dữ liệu lớn hơn và có tổ chức hơn từ các thành viên (members) của nó.
+ * Kích thước của một struct bằng tổng kích thước của các members cộng thêm padding, để tối ưu bộ nhớ sắp xếp các members trong struct theo thứ tự kích thước giảm dần để giảm padding.
+ * Cú pháp:
+   ```Cpp
+      struct TenStruct {
+           kieuDuLieu1 thanhVien1;
+           kieuDuLieu2 thanhVien2;
+           //...
+      };
+   ```
+ * Ứng dụng của struct trong:
+   - Cấu hình (GPIO, UART,SPI, v.v)
+   - JSON
+   - Stack
+   - Queue
+   - Linked List 
+# Union
+ * Union là một cấu trúc dữ liệu, union cũng định nghĩa lại kiểu dữ liệu nhưng mục đích chính của union là tiết kiệm bộ nhớ bằng cách **chia sẻ cùng một vùng nhớ** cho các thành viên của nó.
+ * Kích thước của một union bằng kích thước của thành viên lớn nhất, vì các thành viên chia sẻ cùng một vùng bộ nhớ.
+ * Cú pháp:
+   ```Cpp
+      union TenUnion {
+           kieuDuLieu1 thanhVien1;
+           kieuDuLieu2 thanhVien2;
+           //...
+      };
+   ```
+# Ứng dụng kết hợp struct và union 
+
 </details>
