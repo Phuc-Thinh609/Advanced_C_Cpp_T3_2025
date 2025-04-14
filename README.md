@@ -381,10 +381,10 @@ Quá trình biên dịch bao gồm:
  * Kích thước của một union bằng kích thước của thành viên lớn nhất, vì các thành viên chia sẻ cùng một vùng bộ nhớ.
  * Cú pháp:
    ```Cpp
-      union TenUnion {
-           kieuDuLieu1 thanhVien1;
-           kieuDuLieu2 thanhVien2;
-           //...
+   union TenUnion {
+         kieuDuLieu1 thanhVien1;
+         kieuDuLieu2 thanhVien2;
+         //...
       };
    ```
 # Ứng dụng kết hợp struct và union 
