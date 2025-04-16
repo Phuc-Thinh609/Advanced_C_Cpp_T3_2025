@@ -420,4 +420,27 @@ Quá trình biên dịch bao gồm:
 
 ```
 
+
 </details>
+<details>
+
+<summary>Bài 9: STACK - QUEUE</summary>
+
+# Cấu trúc dữ liệu
+ * Cấu trúc dữ liệu là cách **tổ chức**, và **lữu trữ** dữ liệu để chúng có thể được truy cập và sử dụng một cách hiệu quả, đóng vai trò trong việc giải quyết các bài toán và tối ưu hóa thuật toán.
+ * Cấu trúc dữ liệu được phân làm 2 loại chính:
+   - Cấu trúc dữ liệu tuyến tính (Linear Data Structure): mảng (Array), ngăn xếp(Stack), hàng đợi(Queue), danh sách liên kết (Linked List).
+   - Cấu trúc dữ liệu phi tuyến tính (Non-Linear Data Structure): đồ thị (Graphs), cây (Trees)
+# Stack 
+ * Stack (ngăn xếp) là một cấu trúc dữ liệu tuân theo nguyên tắc ""**Last in-First out**"(LIFO) nghĩa là phần tử (element) cuối cùng được thêm vào stack sẽ là phần tử đầu tiên được lấy ra.
+ * Các thao tác cơ bản trên stack:
+   - "**push**" để thêm một phần tử vào **đỉnh** của stack.
+   - "**pop**" để xóa một phần tử ở **đỉnh** stack.
+   - "**peek/top**" để lấy giá trị của phần tử ở **đỉnh stack**.
+   - Kiểm tra Stack đầy: top = size -1
+   - Kiểm tra Stack rỗng: top = -1
+</details>
+
+</details>
+
+
